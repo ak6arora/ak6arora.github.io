@@ -31,4 +31,9 @@ nav ul li a {
 	text-decoration: none;
 	font-weight: 600;
 }
-
+@media screen and (min-width: 992px) {
+	.container {
+  width: 80%;
+  margin: 0 auto;
+}
+}

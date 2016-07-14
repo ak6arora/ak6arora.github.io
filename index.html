@@ -1,18 +1,48 @@
 <!DOCTYPE html>
-<html ng-app="gitSite">
+<html lang="en" ng-app="gitSite">
+
 <head>
-	<title>Akshay Arora - My GitHub Site</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Akshay Arora - My GitHub Site</title>
+  <meta name="description" content="WebDeveloper GitHub Profile">
+  <meta name="author" content="Akshay Arora">
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,600,700" rel="stylesheet">
+  <link rel="stylesheet" href="styles/global.css">
 </head>
+
 <body>
-<div class="container">
-	<header></header>
-	<div ng-view></div>
-	<footer></footer>
-</div>
-<script type="text/javascript" src="libs/jquery.min.js"></script>
-<script type="text/javascript" src="libs/angular.min.js"></script>
-<script type="text/javascript" src="libs/angular-animate.min.js"></script>
-<script type="text/javascript" src="libs/angular-route.min.js"></script>
-<script type="text/javascript" src="scripts/app.js"></script>
+  <header>
+    <div class="container">
+      <div class="logo">
+
+      </div>
+      <nav>
+        <ul>
+          <li>
+            <a href="#home">HOME</a>
+          </li>
+          <li>
+            <a href="#home">SKILLS</a>
+          </li>
+          <li>
+            <a href="#home">PROJECTS</a>
+          </li>
+          <li>
+            <a href="#home">CONTACT</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <div ng-view class="main"></div>
+  <footer><div class="container"></div></footer>
+  <script type="text/javascript" src="libs/jquery.min.js"></script>
+  <script type="text/javascript" src="libs/angular.min.js"></script>
+  <script type="text/javascript" src="libs/angular-animate.min.js"></script>
+  <script type="text/javascript" src="libs/angular-route.min.js"></script>
+  <script type="text/javascript" src="scripts/app.js"></script>
 </body>
+
 </html>

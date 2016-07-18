@@ -11,6 +11,14 @@
 }
 header {
 	background-color: #2B2301;
+  opacity: 0;
+  -webkit-transition: opacity 1s;
+  -moz-transition: opacity 1s;
+  -o-transition: opacity 1s;
+  transition: opacity 1s;
+}
+.showAnim {
+  opacity: 1;
 }
 .logo {
   display: inline-block;

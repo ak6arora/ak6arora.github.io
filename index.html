@@ -12,32 +12,35 @@
   <link rel="stylesheet" href="styles/global.css">
 </head>
 
-<body>
+<body ng-controller="NavigationController">
   <header ng-class="{'showAnim':enabled}">
     <div class="container">
       <div class="logo">
-
+        <a href="#home" title="Akshay Arora" ng-click="showNav=false"><span class="demo-logo">AA</span></a>
       </div>
-      <nav>
+      <nav ng-class="{slide:showNav}">
         <ul>
           <li>
-            <a href="#home">HOME</a>
+            <a href="#home" ng-class="{'active':$route.current.activetab=='home'}" ng-click="showNav=false">HOME</a>
           </li>
           <li>
-            <a href="#home">SKILLS</a>
+            <a href="#skills" ng-class="{'active':$route.current.activetab=='skills'}" ng-click="showNav=false">SKILLS</a>
           </li>
           <li>
-            <a href="#home">PROJECTS</a>
+            <a href="#projects" ng-class="{'active':$route.current.activetab=='projects'}" ng-click="showNav=false">PROJECTS</a>
           </li>
           <li>
-            <a href="#home">CONTACT</a>
+            <a href="#contact" ng-class="{'active':$route.current.activetab=='contact'}" ng-click="showNav=false">CONTACT</a>
           </li>
         </ul>
       </nav>
+      <span class="btn-slide" ng-click="showNav=!showNav" ng-class="{'slide-back':showNav}"><span class="icon-bar"></span></span>
     </div>
   </header>
   <div ng-view class="main"></div>
-  <footer><div class="container"></div></footer>
+  <footer>
+    <div class="container"></div>
+  </footer>
   <script type="text/javascript" src="libs/jquery.min.js"></script>
   <script type="text/javascript" src="libs/angular.min.js"></script>
   <script type="text/javascript" src="libs/angular-animate.min.js"></script>

@@ -12,29 +12,30 @@
   <link rel="stylesheet" href="styles/global.css">
 </head>
 
-<body ng-controller="NavigationController">
-  <header ng-class="{'showAnim':enabled}">
+<body ng-class="{'no-scroll':showNav,'showAnim':enabled}" ng-controller="MainController as main">
+  <!-- Header Start -->
+  <header ng-controller="NavigationController">
     <div class="container">
       <div class="logo">
-        <a href="#home" title="Akshay Arora" ng-click="showNav=false"><span class="demo-logo">AA</span></a>
+        <a href="#home" title="Akshay Arora" ng-click="$parent.showNav=false"><span class="demo-logo">AA</span></a>
       </div>
-      <nav ng-class="{slide:showNav}">
+      <nav ng-class="{slide:$parent.showNav}">
         <ul>
           <li>
-            <a href="#home" ng-class="{'active':$route.current.activetab=='home'}" ng-click="showNav=false">HOME</a>
+            <a href="#home" ng-class="{'active':$route.current.activetab=='home'}" ng-click="$parent.showNav=false">HOME</a>
           </li>
           <li>
-            <a href="#skills" ng-class="{'active':$route.current.activetab=='skills'}" ng-click="showNav=false">SKILLS</a>
+            <a href="#skills" ng-class="{'active':$route.current.activetab=='skills'}" ng-click="$parent.showNav=false">SKILLS</a>
           </li>
           <li>
-            <a href="#projects" ng-class="{'active':$route.current.activetab=='projects'}" ng-click="showNav=false">PROJECTS</a>
+            <a href="#projects" ng-class="{'active':$route.current.activetab=='projects'}" ng-click="$parent.showNav=false">PROJECTS</a>
           </li>
           <li>
-            <a href="#contact" ng-class="{'active':$route.current.activetab=='contact'}" ng-click="showNav=false">CONTACT</a>
+            <a href="#contact" ng-class="{'active':$route.current.activetab=='contact'}" ng-click="$parent.showNav=false">CONTACT</a>
           </li>
         </ul>
       </nav>
-      <span class="btn-slide" ng-click="showNav=!showNav" ng-class="{'slide-back':showNav}"><span class="icon-bar"></span></span>
+      <span class="btn-slide" ng-click="$parent.showNav=!$parent.showNav" ng-class="{'slide-back':$parent.showNav}"><span class="icon-bar"></span></span>
     </div>
   </header>
   <div ng-view class="main"></div>

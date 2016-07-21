@@ -17,7 +17,7 @@
   <header ng-controller="NavigationController">
     <div class="container">
       <div class="logo">
-        <a href="#home" title="Akshay Arora" ng-click="$parent.showNav=false"><span class="demo-logo">AA</span></a>
+        <a href="#home" title="Akshay Arora" ng-click="$parent.showNav=false" ng-mouseover="fName='Akshay';lName='Arora';fullLogo=true;" ng-mouseleave="fName='A';lName='A';fullLogo=false;"><span class="logo-1">{{fName}}</span><span class="logo-2" ng-class="{'full-logo':fullLogo}">{{lName}}</span></a>
       </div>
       <nav ng-class="{slide:$parent.showNav}">
         <ul>

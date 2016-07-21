@@ -26,7 +26,7 @@ body {
 }
 
 .img-responsive {
-  width: 100%;
+    width: 100%;
 }
 
 .container {
@@ -45,17 +45,30 @@ header {
     opacity: 1;
 }
 
-.demo-logo {
-    color: #fff;
-    font-weight: 700;
-    padding: 10px;
-    display: inline-block;
-    border: 1px solid;
-    border-radius: 50%;
-    color: #E2D893;
-    font-size: 18px;
+.logo {
+    position: relative;
 }
 
+.logo-1,
+.logo-2 {
+    color: #fff;
+    font-weight: 700;
+    display: inline-block;
+    color: #E2D893;
+    font-size: 32px;
+}
+
+.logo-2 {
+    position: absolute;
+    left: 7px;
+    -webkit-transition: all 1s;
+    -moz-transition: all 1s;
+    -o-transition: all 1s;
+    transition: all 1s;
+}
+.full-logo {
+  left:100px;
+}
 nav {
     position: fixed;
     width: 100%;

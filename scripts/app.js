@@ -27,6 +27,7 @@
 
     app.controller('MainController', ['$scope', function($scope) {
         $scope.showNav = false;
+        $scope.overlayHide = false;
     }])
 
     app.controller('NavigationController', ['$scope', '$route', function($scope, $route) {

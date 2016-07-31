@@ -9,32 +9,76 @@
   app.config(function($routeProvider) {
     $routeProvider.when('/home', {
         templateUrl: 'pages/home.html',
-        activetab: 'home'
+        activetab: '0'
       })
       .when('/skills', {
         templateUrl: 'pages/skills.html',
-        activetab: 'skills'
+        activetab: '1'
       })
       .when('/projects', {
         templateUrl: 'pages/projects.html',
-        activetab: 'projects'
+        activetab: '2'
       })
       .when('/contact', {
         templateUrl: 'pages/contact.html',
-        activetab: 'contact'
+        activetab: '3'
       })
       .otherwise({
         redirectTo: '/home'
       });
   });
 
+  app.animation('.main', function() {
+    return {
+      enter: function(element, done) {
+        var current = $($(element)[0]).siblings().children().data('route') || 0;
+        var next = $($(element)[0]).children().data('route');
+        var from, to;
+        if (current < next) {
+            from='100%';
+            to='0';
+        }
+        else {
+            from='-100%';
+            to='0';
+        }
+        element.css({
+            left: from
+          })
+          .animate({
+            left: to,
+          }, 500, done);
+      },
+      leave: function(element, done) {
+        var next = $($(element)[0]).siblings().children().data('route') || 0;
+        var current = $($(element)[0]).children().data('route');
+        var from, to;
+        if (current < next) {
+            from='0';
+            to='-100%';
+        }
+        else {
+            from='0';
+            to='100%';
+        }
+        element.css({
+            left: from,
+          })
+          .animate({
+            left: to,
+          }, 500, done);
+      }
+    };
+  });
+
   app.controller('MainController', ['$scope', function($scope) {
     $scope.showNav = false;
-    $scope.overlayHide = false;
+    $scope.$on('$routeChangeSuccess', function(event, current, previous) {
+      $scope.active = current.activetab;
+    })
   }])
 
-  app.controller('NavigationController', ['$scope', '$route', function($scope, $route) {
-    $scope.$route = $route;
+  app.controller('NavigationController', ['$scope', function($scope) {
     $scope.fName = "A";
     $scope.lName = "A";
     $scope.fullLogo = false;

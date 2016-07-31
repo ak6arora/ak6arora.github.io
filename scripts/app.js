@@ -37,8 +37,8 @@
         $scope.fullLogo=false;
     }]);
     // // show network latency
-    setTimeout(function(){
+    // setTimeout(function(){
         angular.bootstrap(document,["gitSite"]);
-    },3000)
+    // },3000)
 
 })();

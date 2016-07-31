@@ -1,5 +1,5 @@
 (function() {
-  var app = angular.module("gitSite", ['ngRoute', 'ngAnimate']).run(function($rootScope, $document) {
+  var app = angular.module("gitSite", ['ngRoute', 'ngAnimate', 'ngProgress']).run(function($rootScope, $document) {
     $document.ready(function() {
       $rootScope.enabled = true;
     })
@@ -35,12 +35,11 @@
         var next = $($(element)[0]).children().data('route');
         var from, to;
         if (current < next) {
-            from='100%';
-            to='0';
-        }
-        else {
-            from='-100%';
-            to='0';
+          from = '100%';
+          to = '0';
+        } else {
+          from = '-100%';
+          to = '0';
         }
         element.css({
             left: from
@@ -54,12 +53,11 @@
         var current = $($(element)[0]).children().data('route');
         var from, to;
         if (current < next) {
-            from='0';
-            to='-100%';
-        }
-        else {
-            from='0';
-            to='100%';
+          from = '0';
+          to = '-100%';
+        } else {
+          from = '0';
+          to = '100%';
         }
         element.css({
             left: from,
@@ -71,10 +69,16 @@
     };
   });
 
-  app.controller('MainController', ['$scope', function($scope) {
+  app.controller('MainController', ['$scope', 'ngProgressFactory', function($scope, ngProgressFactory) {
     $scope.showNav = false;
+    $scope.progressbar = ngProgressFactory.createInstance();
+    $scope.progressbar.setColor('#5F9DA1');
+    $scope.$on('$routeChangeStart', function(event, next) {
+      $scope.progressbar.start();
+    })
     $scope.$on('$routeChangeSuccess', function(event, current, previous) {
       $scope.active = current.activetab;
+      $scope.progressbar.complete();
     })
   }])
 

@@ -1,6 +1,9 @@
 (function() {
-    var app = angular.module("gitSite", ['ngRoute', 'ngAnimate']).run(function($rootScope) {
-        $rootScope.enabled = true;
+    var app = angular.module("gitSite", ['ngRoute', 'ngAnimate']).run(function($rootScope,$document) {
+        $document.ready(function(){
+            $rootScope.enabled = true;
+        })
+        
     });
 
     app.config(function($routeProvider) {
@@ -34,11 +37,9 @@
         $scope.$route = $route;
         $scope.fName = "A";
         $scope.lName = "A";
-        $scope.fullLogo=false;
+        $scope.fullLogo = false;
     }]);
-    // // show network latency
-    // setTimeout(function(){
-        angular.bootstrap(document,["gitSite"]);
-    // },3000)
+
+    angular.bootstrap(document, ["gitSite"]);
 
 })();

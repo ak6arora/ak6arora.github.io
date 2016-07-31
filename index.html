@@ -1,55 +1,56 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="gitSite">
+<html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Akshay Arora - UI Developer</title>
-  <meta name="description" content="UI Developer">
-  <meta name="author" content="Akshay Arora">
-  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,600,700" rel="stylesheet">
-  <link rel="stylesheet" href="styles/global.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Akshay Arora - UI Developer</title>
+    <meta name="description" content="UI Developer">
+    <meta name="author" content="Akshay Arora">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="styles/global.css">
 </head>
 
-<body ng-class="{'no-scroll':showNav,'showAnim':enabled,'overlay-no-scroll':!overlayHide}" ng-controller="MainController as main">
-  <div class="overlay-1" ng-class="{'overlay-1-animation':overlayHide}"><span class="enter-btn1" ng-click="overlayHide=true">AKSHAY&nbsp;</span></div>
-  <div class="overlay-2" ng-class="{'overlay-2-animation':overlayHide}"><span class="enter-btn2" ng-click="overlayHide=true">&nbsp;ARORA</span></div>
-  <!-- Header Start -->
-  <header ng-controller="NavigationController">
-    <div class="container">
-      <div class="logo">
-        <a href="#home" title="Akshay Arora" ng-click="$parent.showNav=false" ng-mouseover="fName='Akshay';lName='Arora';fullLogo=true;" ng-mouseleave="fName='A';lName='A';fullLogo=false;"><span class="logo-1">{{fName}}</span><span class="logo-2" ng-class="{'full-logo':fullLogo}">{{lName}}</span></a>
-      </div>
-      <nav ng-class="{slide:$parent.showNav}">
-        <ul>
-          <li>
-            <a href="#home" ng-class="{'active':$route.current.activetab=='home'}" ng-click="$parent.showNav=false;">HOME</a>
-          </li>
-          <li>
-            <a href="#skills" ng-class="{'active':$route.current.activetab=='skills'}" ng-click="$parent.showNav=false">SKILLS</a>
-          </li>
-          <li>
-            <a href="#projects" ng-class="{'active':$route.current.activetab=='projects'}" ng-click="$parent.showNav=false">PROJECTS</a>
-          </li>
-          <li>
-            <a href="#contact" ng-class="{'active':$route.current.activetab=='contact'}" ng-click="$parent.showNav=false">CONTACT</a>
-          </li>
-        </ul>
-      </nav>
-      <span class="btn-slide" ng-click="$parent.showNav=!$parent.showNav" ng-class="{'slide-back':$parent.showNav}"><span class="icon-bar"></span></span>
+<body ng-class="{'no-scroll':showNav,'overlay-no-scroll':!overlayHide}" ng-controller="MainController as main">
+    <div class="overlay-1" ng-class="{'overlay-1-animation':enabled}"><span class="enter-btn1">LOAD</span></div>
+    <div class="overlay-2" ng-class="{'overlay-2-animation':enabled}"><span class="enter-btn2">ING</span></div>
+    <!-- Header Start -->
+    <div class="wrapper" ng-class="{'showAnim':enabled}">
+        <header ng-controller="NavigationController">
+            <div class="container">
+                <div class="logo">
+                    <a href="#home" title="Akshay Arora" ng-click="$parent.showNav=false" ng-mouseover="fName='Akshay';lName='Arora';fullLogo=true;" ng-mouseleave="fName='A';lName='A';fullLogo=false;"><span class="logo-1">{{fName}}</span><span class="logo-2" ng-class="{'full-logo':fullLogo}">{{lName}}</span></a>
+                </div>
+                <nav ng-class="{slide:$parent.showNav}">
+                    <ul>
+                        <li>
+                            <a href="#home" ng-class="{'active':$route.current.activetab=='home'}" ng-click="$parent.showNav=false;">HOME</a>
+                        </li>
+                        <li>
+                            <a href="#skills" ng-class="{'active':$route.current.activetab=='skills'}" ng-click="$parent.showNav=false">SKILLS</a>
+                        </li>
+                        <li>
+                            <a href="#projects" ng-class="{'active':$route.current.activetab=='projects'}" ng-click="$parent.showNav=false">PROJECTS</a>
+                        </li>
+                        <li>
+                            <a href="#contact" ng-class="{'active':$route.current.activetab=='contact'}" ng-click="$parent.showNav=false">CONTACT</a>
+                        </li>
+                    </ul>
+                </nav>
+                <span class="btn-slide" ng-click="$parent.showNav=!$parent.showNav" ng-class="{'slide-back':$parent.showNav}"><span class="icon-bar"></span></span>
+            </div>
+        </header>
+        <div ng-view class="main"></div>
+        <footer>
+            <div class="container"></div>
+        </footer>
     </div>
-  </header>
-
-  <div ng-view class="main"></div>
-  <footer>
-    <div class="container"></div>
-  </footer>
-  <script type="text/javascript" src="libs/jquery.min.js"></script>
-  <script type="text/javascript" src="libs/angular.min.js"></script>
-  <script type="text/javascript" src="libs/angular-animate.min.js"></script>
-  <script type="text/javascript" src="libs/angular-route.min.js"></script>
-  <script type="text/javascript" src="scripts/app.js"></script>
+    <script type="text/javascript" src="libs/jquery.min.js"></script>
+    <script type="text/javascript" src="libs/angular.min.js"></script>
+    <script type="text/javascript" src="libs/angular-animate.min.js"></script>
+    <script type="text/javascript" src="libs/angular-route.min.js"></script>
+    <script type="text/javascript" src="scripts/app.js"></script>
 </body>
 
 </html>

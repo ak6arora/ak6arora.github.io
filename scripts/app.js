@@ -36,5 +36,9 @@
         $scope.lName = "A";
         $scope.fullLogo=false;
     }]);
+    // // show network latency
+    setTimeout(function(){
+        angular.bootstrap(document,["gitSite"]);
+    },3000)
 
 })();

@@ -28,6 +28,26 @@
       });
   });
 
+
+  app.controller('MainController', ['$scope', 'ngProgressFactory', function($scope, ngProgressFactory) {
+    $scope.showNav = false;
+    $scope.progressbar = ngProgressFactory.createInstance();
+    $scope.progressbar.setColor('#5F9DA1');
+    $scope.$on('$routeChangeStart', function(event, next) {
+      $scope.progressbar.start();
+    })
+    $scope.$on('$routeChangeSuccess', function(event, current, previous) {
+      $scope.active = current.activetab;
+      $scope.progressbar.complete();
+    })
+  }])
+
+  app.controller('NavigationController', ['$scope', function($scope) {
+    $scope.fName = "A";
+    $scope.lName = "A";
+    $scope.fullLogo = false;
+  }]);
+
   app.animation('.main', function() {
     return {
       enter: function(element, done) {
@@ -69,24 +89,7 @@
     };
   });
 
-  app.controller('MainController', ['$scope', 'ngProgressFactory', function($scope, ngProgressFactory) {
-    $scope.showNav = false;
-    $scope.progressbar = ngProgressFactory.createInstance();
-    $scope.progressbar.setColor('#5F9DA1');
-    $scope.$on('$routeChangeStart', function(event, next) {
-      $scope.progressbar.start();
-    })
-    $scope.$on('$routeChangeSuccess', function(event, current, previous) {
-      $scope.active = current.activetab;
-      $scope.progressbar.complete();
-    })
-  }])
 
-  app.controller('NavigationController', ['$scope', function($scope) {
-    $scope.fName = "A";
-    $scope.lName = "A";
-    $scope.fullLogo = false;
-  }]);
   setTimeout(function() {
     angular.bootstrap(document, ["gitSite"]);
   }, 2000)

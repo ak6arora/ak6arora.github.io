@@ -1,10 +1,10 @@
 (function() {
-  var app = angular.module("gitSite", ['ngRoute', 'ngAnimate', 'ngProgress']).run(function($rootScope, $document) {
-    $document.ready(function() {
-      $rootScope.enabled = true;
-    })
-
-  });
+  var app = angular.module("gitSite", ['ngRoute', 'ngAnimate', 'ngProgress'])
+    .run(function($rootScope, $document, $window, $route, $location) {
+      $document.ready(function() {
+        $rootScope.enabled = true;
+      })
+    });
 
   app.config(function($routeProvider) {
     $routeProvider.when('/home', {
@@ -36,6 +36,7 @@
     $scope.$on('$routeChangeStart', function(event, next) {
       $scope.progressbar.start();
     })
+
     $scope.$on('$routeChangeSuccess', function(event, current, previous) {
       $scope.active = current.activetab;
       $scope.progressbar.complete();

@@ -4,6 +4,25 @@
       $document.ready(function() {
         $rootScope.enabled = true;
       })
+
+      // function onScroll(e) {
+      //   var routes = ['/home', '/skills', '/projects', 'contact'];
+      //   //console.log(e)
+      //   if ($(window).scrollTop() + $(window).height() >= $(document).height() && e.deltaY > 0) {
+      //     if (parseInt($route.current.activetab) < 3)
+      //       $location.path(routes[parseInt($route.current.activetab) + 1]);
+      //     else
+      //       $location.path(routes[0]);
+      //   }
+      // }
+      // $window.addEventListener('DOMMouseScroll', function(e) {
+      //   onScroll(e)
+      // })
+
+      // $window.addEventListener('mousewheel', function(e) {
+      //   onScroll(e)
+      // })
+
     });
 
   app.config(function($routeProvider) {

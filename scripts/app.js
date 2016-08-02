@@ -48,7 +48,7 @@
   });
 
 
-  app.controller('MainController', ['$scope', 'ngProgressFactory', function($scope, ngProgressFactory) {
+  app.controller('MainController', function($scope, ngProgressFactory) {
     $scope.showNav = false;
     $scope.progressbar = ngProgressFactory.createInstance();
     $scope.progressbar.setColor('#5F9DA1');
@@ -60,13 +60,13 @@
       $scope.active = current.activetab;
       $scope.progressbar.complete();
     })
-  }])
+  })
 
-  app.controller('NavigationController', ['$scope', function($scope) {
+  app.controller('NavigationController', function($scope) {
     $scope.fName = "A";
     $scope.lName = "A";
     $scope.fullLogo = false;
-  }]);
+  });
 
   app.animation('.main', function() {
     return {

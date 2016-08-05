@@ -3,25 +3,37 @@
     .run(function($rootScope, $document, $window, $route, $location) {
       $document.ready(function() {
         $rootScope.enabled = true;
+
+        function onScroll(e) {
+          var routes = ['/home', '/skills', '/projects', '/contact'];
+          var r=parseInt($route.current.activetab);
+          if ($(window).scrollTop() + $(window).height() >= $(document).height() && e.deltaY > 0) {
+            if (r<3)
+              r++;
+            else
+              r=0;
+          $location.path(routes[r]);
+          $rootScope.$apply();
+          }
+          else if($(window).scrollTop()==0 && e.deltaY<0){
+             if (r>0)
+              r--;
+            else
+              r=3;
+          $location.path(routes[r]);
+          $rootScope.$apply();
+          }
+        }
+        $window.addEventListener('DOMMouseScroll', function(e) {
+          onScroll(e)
+        })
+
+        $window.addEventListener('mousewheel', function(e) {
+          onScroll(e)
+        })
       })
 
-      // function onScroll(e) {
-      //   var routes = ['/home', '/skills', '/projects', 'contact'];
-      //   //console.log(e)
-      //   if ($(window).scrollTop() + $(window).height() >= $(document).height() && e.deltaY > 0) {
-      //     if (parseInt($route.current.activetab) < 3)
-      //       $location.path(routes[parseInt($route.current.activetab) + 1]);
-      //     else
-      //       $location.path(routes[0]);
-      //   }
-      // }
-      // $window.addEventListener('DOMMouseScroll', function(e) {
-      //   onScroll(e)
-      // })
 
-      // $window.addEventListener('mousewheel', function(e) {
-      //   onScroll(e)
-      // })
 
     });
 
@@ -48,7 +60,7 @@
   });
 
 
-  app.controller('MainController', function($scope, ngProgressFactory) {
+  app.controller('MainController', function($scope, ngProgressFactory,$rootScope,$window) {
     $scope.showNav = false;
     $scope.progressbar = ngProgressFactory.createInstance();
     $scope.progressbar.setColor('#5F9DA1');
@@ -60,6 +72,7 @@
       $scope.active = current.activetab;
       $scope.progressbar.complete();
     })
+
   })
 
   app.controller('NavigationController', function($scope) {
@@ -67,6 +80,7 @@
     $scope.lName = "A";
     $scope.fullLogo = false;
   });
+
 
   app.animation('.main', function() {
     return {
@@ -108,7 +122,6 @@
       }
     };
   });
-
 
   setTimeout(function() {
     angular.bootstrap(document, ["gitSite"]);

@@ -247,7 +247,7 @@ nav ul li a {
 .overlay-2-animation {
   left: 100%;
 }
-.add-overlay-2-animation,.add-active-overlay-2-animation {
+.add-overlay-2-animation, .add-active-overlay-2-animation {
   display: block;
 }
 .main {
@@ -311,6 +311,16 @@ nav ul li a {
   text-decoration: none;
   width: 200px;
 }
+.skills #canvas {
+  background-color: #A79E65;
+  border-radius: 50%;
+}
+.skills .skill-container {
+  display: block;
+  margin-top: 30px;
+  text-align: center;
+  width: auto;
+}
 @media screen and (min-width: 768px) {
   header {
     padding: 0;
@@ -348,6 +358,10 @@ nav ul li a {
   .banner .banner-content {
     margin: 100px auto 0;
     width: 50%;
+  }
+  .skills .skill-container {
+    display: inline-block;
+    width: 33%;
   }
 }
 @media screen and (min-width: 992px) {

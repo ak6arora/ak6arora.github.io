@@ -4,33 +4,32 @@
       $document.ready(function() {
         $rootScope.enabled = true;
 
-        function onScroll(e) {
-          var routes = ['/home', '/skills', '/projects', '/contact'];
-          var r=parseInt($route.current.activetab);
-          if ($(window).scrollTop() + $(window).height() >= $(document).height() && e.deltaY > 0) {
-            if (r<3)
-              r++;
-            else
-              r=0;
-          $location.path(routes[r]);
-          $rootScope.$apply();
-          }
-          else if($(window).scrollTop()==0 && e.deltaY<0){
-             if (r>0)
-              r--;
-            else
-              r=3;
-          $location.path(routes[r]);
-          $rootScope.$apply();
-          }
-        }
-        $window.addEventListener('DOMMouseScroll', function(e) {
-          onScroll(e)
-        })
+        // function onScroll(e) {
+        //   var routes = ['/home', '/skills', '/projects', '/contact'];
+        //   var r = parseInt($route.current.activetab);
+        //   if ($(window).scrollTop() + $(window).height() >= $(document).height() && e.deltaY > 0) {
+        //     if (r < 3)
+        //       r++;
+        //     else
+        //       r = 0;
+        //     $location.path(routes[r]);
+        //     $rootScope.$apply();
+        //   } else if ($(window).scrollTop() == 0 && e.deltaY < 0) {
+        //     if (r > 0)
+        //       r--;
+        //     else
+        //       r = 3;
+        //     $location.path(routes[r]);
+        //     $rootScope.$apply();
+        //   }
+        // }
+        // $window.addEventListener('DOMMouseScroll', function(e) {
+        //   onScroll(e)
+        // })
 
-        $window.addEventListener('mousewheel', function(e) {
-          onScroll(e)
-        })
+        // $window.addEventListener('mousewheel', function(e) {
+        //   onScroll(e)
+        // })
       })
 
 
@@ -60,7 +59,7 @@
   });
 
 
-  app.controller('MainController', function($scope, ngProgressFactory,$rootScope,$window) {
+  app.controller('MainController', function($scope, ngProgressFactory, $rootScope, $window) {
     $scope.showNav = false;
     $scope.progressbar = ngProgressFactory.createInstance();
     $scope.progressbar.setColor('#5F9DA1');
@@ -122,6 +121,30 @@
       }
     };
   });
+
+  app.directive('skillPercent', function() {
+    return {
+      restrict: "A",
+      scope: true,
+      link: function(scope, element, attrs) {
+        var canvas = document.createElement('canvas');
+        var ctx = canvas.getContext('2d');
+        canvas.id = 'canvas';
+        canvas.width = 200;
+        canvas.height = 200;
+        element[0].appendChild(canvas);
+        ctx.strokeStyle="#2B2301";
+        ctx.beginPath();
+        ctx.arc(100, 100, 94, -(Math.PI*0.5), (2 * Math.PI)*(parseInt(attrs.skillPercent)/100)-(Math.PI*0.5));
+        ctx.lineWidth=10;
+        ctx.stroke();
+        ctx.font="40pt 'Josefin Sans', sans-serif";
+        ctx.textAlign = 'center';
+        ctx.fillStyle = '#2B2301';
+        ctx.fillText(attrs.skillPercent+"%" ,100, 120);
+      }
+    }
+  })
 
   setTimeout(function() {
     angular.bootstrap(document, ["gitSite"]);

@@ -159,6 +159,9 @@ nav ul li a {
   left: 50%;
   background-position-x: 100%;
 }
+.overlay-1.ng-animate,.overlay-2.ng-animate {
+  display: block;
+}
 .enter-btn1, .enter-btn2 {
   position: absolute;
   top: 50%;
@@ -243,12 +246,11 @@ nav ul li a {
 }
 .overlay-1-animation {
   left: -50%;
+  display: none;
 }
 .overlay-2-animation {
   left: 100%;
-}
-.add-overlay-2-animation, .add-active-overlay-2-animation {
-  display: block;
+  display: none;
 }
 .main {
   width: 100%;

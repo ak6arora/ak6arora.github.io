@@ -145,10 +145,4 @@
       }
     }
   })
-
-  setTimeout(function() {
-    angular.bootstrap(document, ["gitSite"]);
-  }, 2000)
-
-
 })();

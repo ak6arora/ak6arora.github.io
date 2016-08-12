@@ -68,10 +68,10 @@ nav {
   height: 100%;
   background-color: #E2D893;
   text-align: right;
-  -webkit-transition: all 1s;
-  -moz-transition: all 1s;
-  -o-transition: all 1s;
-  transition: all 1s;
+  -webkit-transition: all .5s;
+  -moz-transition: all .5s;
+  -o-transition: all .5s;
+  transition: all .5s;
   right: -100%;
   top: 62px;
   z-index: 1;
@@ -322,6 +322,9 @@ nav ul li a {
   margin-top: 30px;
   text-align: center;
   width: auto;
+}
+.skill-container h3 {
+  margin-bottom: 20px;
 }
 @media screen and (min-width: 768px) {
   header {

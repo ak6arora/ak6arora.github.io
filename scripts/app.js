@@ -63,6 +63,7 @@
     $scope.showNav = false;
     $scope.progressbar = ngProgressFactory.createInstance();
     $scope.progressbar.setColor('#5F9DA1');
+    
     $scope.$on('$routeChangeStart', function(event, next) {
       $scope.progressbar.start();
     })
@@ -133,14 +134,14 @@
         canvas.width = 200;
         canvas.height = 200;
         element[0].appendChild(canvas);
-        ctx.strokeStyle="#2B2301";
+        ctx.strokeStyle="#A79E65";
         ctx.beginPath();
         ctx.arc(100, 100, 94, -(Math.PI*0.5), (2 * Math.PI)*(parseInt(attrs.skillPercent)/100)-(Math.PI*0.5));
         ctx.lineWidth=10;
         ctx.stroke();
         ctx.font="40pt 'Josefin Sans', sans-serif";
         ctx.textAlign = 'center';
-        ctx.fillStyle = '#2B2301';
+        ctx.fillStyle = '#A79E65';
         ctx.fillText(attrs.skillPercent+"%" ,100, 120);
       }
     }

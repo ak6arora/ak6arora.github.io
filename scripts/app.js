@@ -45,8 +45,8 @@
         templateUrl: 'pages/skills.html',
         activetab: '1'
       })
-      .when('/projects', {
-        templateUrl: 'pages/projects.html',
+      .when('/exp', {
+        templateUrl: 'pages/exp.html',
         activetab: '2'
       })
       .when('/contact', {

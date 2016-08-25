@@ -11,7 +11,7 @@ body {
   overflow-x: hidden;
   font-size: 1em;
   color: #2B2301;
-  background-color: #A79E65;
+  background-color: rgba(167, 158, 101, 0.8);
 }
 .no-scroll, .overlay-no-scroll {
   overflow-y: hidden;
@@ -160,7 +160,7 @@ nav ul li a {
   left: 50%;
   background-position-x: 100%;
 }
-.overlay-1.ng-animate,.overlay-2.ng-animate {
+.overlay-1.ng-animate, .overlay-2.ng-animate {
   display: block;
 }
 .enter-btn1, .enter-btn2 {
@@ -268,10 +268,10 @@ nav ul li a {
 .home {
   margin-top: 20px;
 }
-.home .banner,.skills .skills-bg {
+.home .banner, .skills .skills-bg {
   position: relative;
 }
-.home .banner .home-banner,.skills .skills-bg-image {
+.home .banner .home-banner, .skills .skills-bg-image {
   width: 100%;
   height: 100%;
   vertical-align: bottom;
@@ -285,7 +285,7 @@ nav ul li a {
   left: calc(50% - 64px);
   border-radius: 50%;
 }
-.home .banner .banner-overlay,.skills .skills-bg .background-overlay {
+.home .banner .banner-overlay, .skills .skills-bg .background-overlay {
   width: 100%;
   height: 100vh;
   position: fixed;
@@ -335,11 +335,131 @@ nav ul li a {
   margin-bottom: 20px;
 }
 .skill-container .skill-icon {
-    position: absolute;
-    left: calc(50% - 19px);
-    top: 60px;
-    font-size: 50px;
-    color: #A79E65;
+  position: absolute;
+  left: calc(50% - 19px);
+  top: 60px;
+  font-size: 50px;
+  color: #A79E65;
+}
+.exp {
+  text-align: center;
+}
+.exp .exp-wrapper {
+  display: inline-block;
+}
+.exp .exp-wrapper .exp-list {
+  list-style: none;
+}
+.exp-list li {
+  margin-top: 50px;
+}
+.exp-list .exp-line {
+  width: 15px;
+  height: 15px;
+  background-color: #2B2301;
+  border-radius: 50%;
+  border: 3px solid #2B2301;
+  margin: auto;
+  position: relative;
+  top: 5px;
+}
+.exp-list .exp-line:before {
+  content: "";
+  width: 3px;
+  height: 50px;
+  background-color: #2B2301;
+  position: absolute;
+  top: 11px;
+  left: 3px;
+}
+.contact {
+  text-align: center;
+}
+.contact form {
+  width: 100%;
+  display: inline-block;
+  margin-top: 50px;
+  padding: 10px 20px 20px;
+}
+.contact input[type="text"] {
+  width: 100%;
+  font-size: 18px;
+  padding: 6px;
+  margin-top: 10px;
+  color: #A79E65;
+  background-color: #2B2301;
+  border: 1px solid #A79E65;
+}
+.contact textarea {
+  width: 100%;
+  margin-top: 13px;
+  height: 150px;
+  font-size: 18px;
+  padding: 6px;
+  color: #A79E65;
+  background-color: #2B2301;
+  border: 1px solid #A79E65;
+  max-width: 100%;
+  max-height: 150px;
+}
+.contact input[type="text"]:focus, .contact textarea:focus,.contact button:focus {
+  outline: none;
+  border-color: #E2D893;
+}
+@-webkit-keyframes exp-current {
+  0% {
+    background-color: transparent;
+  }
+  50% {
+    background-color: #2B2301;
+  }
+}
+@keyframes exp-current {
+  0% {
+    background-color: transparent;
+  }
+  50% {
+    background-color: #2B2301;
+  }
+}
+.exp-list .exp-line.present {
+  background-color: transparent;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+  -webkit-animation: exp-current 1.2s infinite ease-in-out;
+  animation: exp-current 1.2s infinite ease-in-out;
+}
+.exp-list .exp-line.present:before {
+  content: none;
+}
+.contact button {
+  padding: 10px 25px;
+  background-color: #2B2301;
+  border: none;
+  color: #E2D893;
+  font-weight: 700;
+  font-size: 18px;
+  margin-top: 30px;
+  cursor: pointer;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.contact button hr {
+  -webkit-transition: all linear 0.3s;
+  -moz-transition: all linear 0.3s;
+  -o-transition: all linear 0.3s;
+  transition: all linear 0.3s;
+  visibility: hidden;
+  width: 0;
+  border-color: #E2D893;
+}
+.contact button:hover hr {
+  visibility: visible;
+  width: 100%;
 }
 @media screen and (min-width: 768px) {
   header {
@@ -382,6 +502,12 @@ nav ul li a {
   .skills .skill-container {
     display: inline-block;
     width: 32.9%;
+  }
+  .contact form {
+    width: 500px;
+  }
+  .contact input[type="text"] {
+    width: 49.5%;
   }
 }
 @media screen and (min-width: 992px) {

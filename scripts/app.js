@@ -81,6 +81,16 @@
     $scope.fullLogo = false;
   });
 
+  app.controller('ContactController', function($scope,$http){
+    $scope.email= {};
+    $scope.email.send = function(){
+      $http.post('https://ak6arora.herokuapp.com/sendQuery',{
+        'name':$scope.name,
+        'email':$scope.emailid,
+        'message':$scope.message
+      })
+    }
+  })
 
   app.animation('.main', function() {
     return {

@@ -1,10 +1,10 @@
-<div class="contact" data-route="3">
+<div class="contact" data-route="3" ng-controller="ContactController">
   <div class="container">
   	<h1>Get in Touch</h1>
-    <form>
-      <input type="text" placeholder="Name" />
-      <input type="text" placeholder="Email" />
-      <textarea placeholder="What do you need?" resize="no"></textarea>
+    <form ng-submit="email.send()">
+      <input type="text" placeholder="Name" name="Name" ng-model="name"/>
+      <input type="text" placeholder="Email" name="Email" ng-model="emailid"/>
+      <textarea placeholder="What do you need?" ng-model="message"></textarea>
       <button type="submit">Send Message<hr></button>
     </form>
   </div>

@@ -88,6 +88,8 @@
         'name':$scope.name,
         'email':$scope.emailid,
         'message':$scope.message
+      }).success(function(){
+        angular.element('form').html('<h3>Thank you for your interest,I will contact you soon</h3>');
       })
     }
   })

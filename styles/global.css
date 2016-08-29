@@ -408,6 +408,7 @@ nav ul li a {
   outline: none;
   border-color: #E2D893;
 }
+/*fix for chrome autofill background color*/
 .contact input:-webkit-autofill,.contact textarea:-webkit-autofill,.contact select:-webkit-autofill {
   transition: all 5000s ease-in-out 0s;
 }

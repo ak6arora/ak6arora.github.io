@@ -388,7 +388,7 @@ nav ul li a {
   margin-top: 10px;
   color: #A79E65;
   background-color: #2B2301;
-  border: 1px solid #A79E65;
+  border: 1px solid #2B2301;
   box-shadow: 1px 1px 15px 0px #2B2301;
 }
 .contact textarea {
@@ -399,7 +399,7 @@ nav ul li a {
   padding: 6px;
   color: #A79E65;
   background-color: #2B2301;
-  border: 1px solid #A79E65;
+  border: 1px solid #2B2301;
   max-width: 100%;
   max-height: 150px;
   box-shadow: 1px 1px 15px 0px #2B2301;
@@ -407,6 +407,9 @@ nav ul li a {
 .contact input[type="text"]:focus, .contact textarea:focus,.contact button:focus {
   outline: none;
   border-color: #E2D893;
+}
+.contact input:-webkit-autofill,.contact textarea:-webkit-autofill,.contact select:-webkit-autofill {
+  transition: all 5000s ease-in-out 0s;
 }
 @-webkit-keyframes exp-current {
   0% {

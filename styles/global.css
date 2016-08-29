@@ -389,6 +389,7 @@ nav ul li a {
   color: #A79E65;
   background-color: #2B2301;
   border: 1px solid #A79E65;
+  box-shadow: 1px 1px 15px 0px #2B2301;
 }
 .contact textarea {
   width: 100%;
@@ -401,6 +402,7 @@ nav ul li a {
   border: 1px solid #A79E65;
   max-width: 100%;
   max-height: 150px;
+  box-shadow: 1px 1px 15px 0px #2B2301;
 }
 .contact input[type="text"]:focus, .contact textarea:focus,.contact button:focus {
   outline: none;

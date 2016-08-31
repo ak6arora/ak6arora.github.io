@@ -66,16 +66,16 @@
 
   app.controller('MainController', function($scope, ngProgressFactory, $rootScope, $window) {
     $scope.showNav = false;
-    $scope.progressbar = ngProgressFactory.createInstance();
-    $scope.progressbar.setColor('#5F9DA1');
+    $rootScope.progressbar = ngProgressFactory.createInstance();
+    $rootScope.progressbar.setColor('#5F9DA1');
 
     $scope.$on('$routeChangeStart', function(event, next) {
-      $scope.progressbar.start();
+      $rootScope.progressbar.start();
     })
 
     $scope.$on('$routeChangeSuccess', function(event, current, previous) {
       $scope.active = current.activetab;
-      $scope.progressbar.complete();
+      $rootScope.progressbar.complete();
     })
 
   })
@@ -86,14 +86,16 @@
     $scope.fullLogo = false;
   });
 
-  app.controller('ContactController', function($scope, $http) {
+  app.controller('ContactController', function($scope, $http, $rootScope) {
     $scope.email = {};
     $scope.email.send = function() {
+      $rootScope.progressbar.start();
       $http.post('https://ak6arora.herokuapp.com/sendQuery', {
         'name': $scope.name,
         'email': $scope.emailid,
         'message': $scope.message
       }).success(function() {
+        $rootScope.progressbar.complete();
         angular.element('form').html('<h3>Thank you for your interest,I will contact you soon</h3>');
       })
     }

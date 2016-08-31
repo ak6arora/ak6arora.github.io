@@ -1,36 +1,41 @@
 (function() {
   var app = angular.module("gitSite", ['ngRoute', 'ngAnimate', 'ngProgress'])
     .run(function($rootScope, $document, $window, $route, $location) {
-      $document.ready(function() {
+      $rootScope.$on('$viewContentLoaded', function() {
         $rootScope.enabled = true;
+      });
 
-        // function onScroll(e) {
-        //   var routes = ['/home', '/skills', '/projects', '/contact'];
-        //   var r = parseInt($route.current.activetab);
-        //   if ($(window).scrollTop() + $(window).height() >= $(document).height() && e.deltaY > 0) {
-        //     if (r < 3)
-        //       r++;
-        //     else
-        //       r = 0;
-        //     $location.path(routes[r]);
-        //     $rootScope.$apply();
-        //   } else if ($(window).scrollTop() == 0 && e.deltaY < 0) {
-        //     if (r > 0)
-        //       r--;
-        //     else
-        //       r = 3;
-        //     $location.path(routes[r]);
-        //     $rootScope.$apply();
-        //   }
-        // }
-        // $window.addEventListener('DOMMouseScroll', function(e) {
-        //   onScroll(e)
-        // })
+      /*
+       *For View change on scrolling
+       *
+       */
+      // function onScroll(e) {
+      //   var routes = ['/home', '/skills', '/projects', '/contact'];
+      //   var r = parseInt($route.current.activetab);
+      //   if ($(window).scrollTop() + $(window).height() >= $(document).height() && e.deltaY > 0) {
+      //     if (r < 3)
+      //       r++;
+      //     else
+      //       r = 0;
+      //     $location.path(routes[r]);
+      //     $rootScope.$apply();
+      //   } else if ($(window).scrollTop() == 0 && e.deltaY < 0) {
+      //     if (r > 0)
+      //       r--;
+      //     else
+      //       r = 3;
+      //     $location.path(routes[r]);
+      //     $rootScope.$apply();
+      //   }
+      // }
+      // $window.addEventListener('DOMMouseScroll', function(e) {
+      //   onScroll(e)
+      // })
 
-        // $window.addEventListener('mousewheel', function(e) {
-        //   onScroll(e)
-        // })
-      })
+      // $window.addEventListener('mousewheel', function(e) {
+      //   onScroll(e)
+      // })
+
 
 
 
@@ -63,7 +68,7 @@
     $scope.showNav = false;
     $scope.progressbar = ngProgressFactory.createInstance();
     $scope.progressbar.setColor('#5F9DA1');
-    
+
     $scope.$on('$routeChangeStart', function(event, next) {
       $scope.progressbar.start();
     })
@@ -81,14 +86,14 @@
     $scope.fullLogo = false;
   });
 
-  app.controller('ContactController', function($scope,$http){
-    $scope.email= {};
-    $scope.email.send = function(){
-      $http.post('https://ak6arora.herokuapp.com/sendQuery',{
-        'name':$scope.name,
-        'email':$scope.emailid,
-        'message':$scope.message
-      }).success(function(){
+  app.controller('ContactController', function($scope, $http) {
+    $scope.email = {};
+    $scope.email.send = function() {
+      $http.post('https://ak6arora.herokuapp.com/sendQuery', {
+        'name': $scope.name,
+        'email': $scope.emailid,
+        'message': $scope.message
+      }).success(function() {
         angular.element('form').html('<h3>Thank you for your interest,I will contact you soon</h3>');
       })
     }
@@ -146,15 +151,15 @@
         canvas.width = 200;
         canvas.height = 200;
         element[0].appendChild(canvas);
-        ctx.strokeStyle="#A79E65";
+        ctx.strokeStyle = "#A79E65";
         ctx.beginPath();
-        ctx.arc(100, 100, 94, -(Math.PI*0.5), (2 * Math.PI)*(parseInt(attrs.skillPercent)/100)-(Math.PI*0.5));
-        ctx.lineWidth=10;
+        ctx.arc(100, 100, 94, -(Math.PI * 0.5), (2 * Math.PI) * (parseInt(attrs.skillPercent) / 100) - (Math.PI * 0.5));
+        ctx.lineWidth = 10;
         ctx.stroke();
-        ctx.font="40pt 'Josefin Sans', sans-serif";
+        ctx.font = "40pt 'Josefin Sans', sans-serif";
         ctx.textAlign = 'center';
         ctx.fillStyle = '#A79E65';
-        ctx.fillText(attrs.skillPercent+"%" ,100, 120);
+        ctx.fillText(attrs.skillPercent + "%", 100, 120);
       }
     }
   })

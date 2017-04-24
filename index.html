@@ -55,17 +55,17 @@
         </div>
         <nav ng-class="{slide:$parent.showNav}">
           <ul itemscope="itemscope" itemtype="http://www.schema.org/SiteNavigationElement">
-            <li>
-              <a href="#home" ng-click="$parent.showNav=false;" ng-class="{'active':active==0}" itemprop="name">HOME</a>
+            <li itemprop="name">
+              <a href="#home" ng-click="$parent.showNav=false;" ng-class="{'active':active==0}" itemprop="url">HOME</a>
             </li>
-            <li>
-              <a href="#skills" ng-click="$parent.showNav=false" ng-class="{'active':active==1}" itemprop="name">SKILLS</a>
+            <li itemprop="name">
+              <a href="#skills" ng-click="$parent.showNav=false" ng-class="{'active':active==1}" itemprop="url">SKILLS</a>
             </li>
-            <li>
-              <a href="#exp" ng-click="$parent.showNav=false" ng-class="{'active':active==2}" itemprop="name">EXPERIENCE</a>
+            <li itemprop="name">
+              <a href="#exp" ng-click="$parent.showNav=false" ng-class="{'active':active==2}" itemprop="url">EXPERIENCE</a>
             </li>
-            <li>
-              <a href="#contact" ng-click="$parent.showNav=false" ng-class="{'active':active==3}" itemprop="name">CONTACT</a>
+            <li itemprop="name">
+              <a href="#contact" ng-click="$parent.showNav=false" ng-class="{'active':active==3}" itemprop="url">CONTACT</a>
             </li>
           </ul>
         </nav>

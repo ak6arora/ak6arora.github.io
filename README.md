@@ -32,7 +32,7 @@ This component is wrraper around default html heading elements.
 | [align] | <code>string</code> | loading state of the page |
 | [displayAs] | <code>string</code> | Heading Node |
 
-
+### Usage
 ```javascript
       <>
         <Heading content={label1} variant="h1" displayAs={displayAs} />

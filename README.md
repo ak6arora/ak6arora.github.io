@@ -34,7 +34,7 @@ This component is wrraper around default html heading elements.
 
 
 ```javascript
-    <>
+      <>
         <Heading content={label1} variant="h1" displayAs={displayAs} />
         <Heading content={label2} variant="h2" />
         <Heading content={label3} variant="h3" />
